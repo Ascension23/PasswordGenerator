@@ -41,22 +41,23 @@ function passwordPrompt() {
     userChoices = userChoices.concat(symbols)
     console.log(userChoices)
   }
-  var capitalization = prompt('Does your password require upper and lowercase? Y for yes, N for no.')
+  var capitalization = prompt('Does your password require uppercase characters? Y for yes, N for no.')
   if (!userInputYes.includes(capitalization) && !userInputNo.includes(capitalization)) {
     alert('Please enter Y for yes, N for no.')
-    symbols = prompt('Does your password require upper and lowercase? Y for yes, N for no.')
+    symbols = prompt('Does your password require uppercase characters? Y for yes, N for no.')
   } else if (capitalization == userInputYes) {
-    userChoices = userChoices.concat(capitalization)
+    userChoices = userChoices.concat(upperCase)
     console.log(userChoices)
   }
 }
+
 
 
 // Math.floor Math.random
 
 function generatePassword() {
   passwordPrompt()
-  userChoices.concat(symbols) + userChoices.concat(numeric) + userChoices.concat(special)
+  // userChoices.concat(symbols) + userChoices.concat(numeric) + userChoices.concat(upperCase)
 }
 
 // Write password to the #password input
