@@ -38,7 +38,7 @@ function passwordPrompt() {
     alert('Please enter Y for yes, N for no.')
     symbols = prompt('Does your password require special characters? Y for yes, N for no.')
   } else if (special == userInputYes) {
-    userChoices = userChoices.concat(special)
+    userChoices = userChoices.concat(symbols)
     console.log(userChoices)
   }
   var capitalization = prompt('Does your password require upper and lowercase? Y for yes, N for no.')
@@ -56,6 +56,7 @@ function passwordPrompt() {
 
 function generatePassword() {
   passwordPrompt()
+  userChoices.concat(symbols) + userChoices.concat(numeric) + userChoices.concat(special)
 }
 
 // Write password to the #password input
