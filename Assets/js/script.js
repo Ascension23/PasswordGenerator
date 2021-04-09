@@ -39,7 +39,7 @@ function passwordPrompt() {
   var special = prompt('Does your password require special characters? Y for yes, N for no.')
   if (!userInputYes.includes(special) && !userInputNo.includes(special)) {
     alert('Please enter Y for yes, N for no.')
-    symbols = prompt('Does your password require special characters? Y for yes, N for no.')
+    special = prompt('Does your password require special characters? Y for yes, N for no.')
   } else if (special == userInputYes) {
     userChoices = userChoices.concat(symbols)
     
@@ -49,12 +49,20 @@ function passwordPrompt() {
   var capitalization = prompt('Does your password require uppercase characters? Y for yes, N for no.')
   if (!userInputYes.includes(capitalization) && !userInputNo.includes(capitalization)) {
     alert('Please enter Y for yes, N for no.')
-    symbols = prompt('Does your password require uppercase characters? Y for yes, N for no.')
+    capitalization = prompt('Does your password require uppercase characters? Y for yes, N for no.')
   } else if (capitalization == userInputYes) {
     userChoices = userChoices.concat(upperCase + lowerCase)
     
   }
-  console.log(userChoices.concat(upperCase + lowerCase))
+  var lower = prompt('Does your password require lowercase characters? Y for yes, N for no.')
+  if (!userInputYes.includes(lower) && !userInputNo.includes(lower)) {
+    alert('Please enter Y for yes, N for no.')
+    lower = prompt('Does your password require lowercase characters? Y for yes, N for no.')
+  } else if (lower == userInputYes) {
+    userChoices = userChoices.concat(lowerCase)
+    
+  }
+  console.log(userChoices)
 }
 
 
