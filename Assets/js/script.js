@@ -24,6 +24,7 @@ function passwordPrompt() {
       passwordLength = prompt('Enter a valid number between 8 and 128')
 
     }
+    console.log (passwordLength)
   }
   var numbers = prompt('Does your password require numbers? Y for yes, N for no.')
   if (!userInputYes.includes(numbers) && !userInputNo.includes(numbers)) {
@@ -31,24 +32,29 @@ function passwordPrompt() {
     numbers = prompt('Does your password require numbers? Y for yes, N for no.')
   } else if (numbers == userInputYes) {
     userChoices = userChoices.concat(numeric)
-    console.log(userChoices)
+    
   }
+  console.log(userChoices.concat(numeric))
+
   var special = prompt('Does your password require special characters? Y for yes, N for no.')
   if (!userInputYes.includes(special) && !userInputNo.includes(special)) {
     alert('Please enter Y for yes, N for no.')
     symbols = prompt('Does your password require special characters? Y for yes, N for no.')
   } else if (special == userInputYes) {
     userChoices = userChoices.concat(symbols)
-    console.log(userChoices)
+    
   }
+    console.log(userChoices.concat(symbols))
+  
   var capitalization = prompt('Does your password require uppercase characters? Y for yes, N for no.')
   if (!userInputYes.includes(capitalization) && !userInputNo.includes(capitalization)) {
     alert('Please enter Y for yes, N for no.')
     symbols = prompt('Does your password require uppercase characters? Y for yes, N for no.')
   } else if (capitalization == userInputYes) {
-    userChoices = userChoices.concat(upperCase)
-    console.log(userChoices)
+    userChoices = userChoices.concat(upperCase + lowerCase)
+    
   }
+  console.log(userChoices.concat(upperCase + lowerCase))
 }
 
 
@@ -57,7 +63,10 @@ function passwordPrompt() {
 
 function generatePassword() {
   passwordPrompt()
-  // userChoices.concat(symbols) + userChoices.concat(numeric) + userChoices.concat(upperCase)
+  // userChoices.concat(special)
+  // userChoices.concat(numbers)
+  // userChoices.concat(capitalization)
+  console.log('Testing Password')
 }
 
 // Write password to the #password input
