@@ -5,7 +5,7 @@ var symbols = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',',
 var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var userInputYes = ['Y', 'y']
-var userInputNo = ['N','n']
+var userInputNo = ['N', 'n']
 var userChoices = []
 var passwordLength = 0
 
@@ -24,57 +24,59 @@ function passwordPrompt() {
       passwordLength = prompt('Enter a valid number between 8 and 128')
 
     }
-    console.log (passwordLength)
+    console.log(passwordLength)
   }
-  var numbers = prompt('Does your password require numbers? Y for yes, N for no.')
-  if (!userInputYes.includes(numbers) && !userInputNo.includes(numbers)) {
-    alert('Please enter Y for yes, N for no.')
-    numbers = prompt('Does your password require numbers? Y for yes, N for no.')
-  } else if (numbers == userInputYes) {
-    userChoices = userChoices.concat(numeric)
-    
-  }
-  console.log(userChoices.concat(numeric))
 
-  var special = prompt('Does your password require special characters? Y for yes, N for no.')
-  if (!userInputYes.includes(special) && !userInputNo.includes(special)) {
-    alert('Please enter Y for yes, N for no.')
-    special = prompt('Does your password require special characters? Y for yes, N for no.')
-  } else if (special == userInputYes) {
-    userChoices = userChoices.concat(symbols)
-    
-  }
-    console.log(userChoices.concat(symbols))
   
-  var capitalization = prompt('Does your password require uppercase characters? Y for yes, N for no.')
-  if (!userInputYes.includes(capitalization) && !userInputNo.includes(capitalization)) {
-    alert('Please enter Y for yes, N for no.')
-    capitalization = prompt('Does your password require uppercase characters? Y for yes, N for no.')
-  } else if (capitalization == userInputYes) {
-    userChoices = userChoices.concat(upperCase + lowerCase)
-    
+  var numbers = confirm('Does your password require numbers?')
+  var special = confirm('Does your password require special characters?')
+  var capitalization = confirm('Does your password require uppercase characters?')
+  var lower = confirm('Does your password require lowercase characters?')
+  
+  if (numbers == false) {
+    return
+  } else if (numbers == true) {
+    userChoices.push(numeric)
+    console.log(userChoices)
   }
-  var lower = prompt('Does your password require lowercase characters? Y for yes, N for no.')
-  if (!userInputYes.includes(lower) && !userInputNo.includes(lower)) {
-    alert('Please enter Y for yes, N for no.')
-    lower = prompt('Does your password require lowercase characters? Y for yes, N for no.')
-  } else if (lower == userInputYes) {
-    userChoices = userChoices.concat(lowerCase)
-    
+  
+  
+  if (numbers == false) {
+    return
+  } else if (special == true) {
+    userChoices.push(symbols)
+    console.log(userChoices)
   }
-  console.log(userChoices)
-}
 
+
+  if (capitalization == false) {
+    return
+  } else if (capitalization == true) {
+    userChoices.push(upperCase)
+    console.log(userChoices)
+  }
+
+  
+  if (lower == false) {
+    return
+  } else if (lower == true) {
+    userChoices.push(lowerCase)
+    console.log(userChoices)
+  }
+
+}
 
 
 // Math.floor Math.random
 
 function generatePassword() {
   passwordPrompt()
-  // userChoices.concat(special)
-  // userChoices.concat(numbers)
-  // userChoices.concat(capitalization)
-  console.log('Testing Password')
+  var password = []
+  for (var i = 0; i < passwordLength; i++) {
+    var choices = userChoices[Math.floor(Math.random() * userChoices.length)];
+    password.push(choices);
+  }
+  return password
 }
 
 // Write password to the #password input
