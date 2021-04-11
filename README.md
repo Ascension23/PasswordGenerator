@@ -8,3 +8,4 @@ https://ascension23.github.io/PasswordGenerator/
 https://github.com/Ascension23/PasswordGenerator
 
 ### Screenshot
+![Password Generator html](https://user-images.githubusercontent.com/77472152/114287835-24fa9e00-9a1f-11eb-8401-5451dba232cd.png)
