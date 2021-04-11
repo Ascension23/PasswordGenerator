@@ -28,15 +28,15 @@ function passwordPrompt() {
   }
 
   
-  var numbers = confirm('Does your password require numbers?')
-  var special = confirm('Does your password require special characters?')
-  var capitalization = confirm('Does your password require uppercase characters?')
-  var lower = confirm('Does your password require lowercase characters?')
+  var numbers = confirm('Do you want to use numbers?')
+  var special = confirm('Do you want to use special characters?')
+  var upper = confirm('Do you want to use uppercase characters?')
+  var lower = confirm('Do you want to use lowercase characters?')
   
   if (numbers == false) {
     return
   } else if (numbers == true) {
-    userChoices.push(numeric)
+    userChoices.push(...numeric)
     console.log(userChoices)
   }
   
@@ -44,15 +44,15 @@ function passwordPrompt() {
   if (numbers == false) {
     return
   } else if (special == true) {
-    userChoices.push(symbols)
+    userChoices.push(...symbols)
     console.log(userChoices)
   }
 
 
-  if (capitalization == false) {
+  if (upper == false) {
     return
-  } else if (capitalization == true) {
-    userChoices.push(upperCase)
+  } else if (upper == true) {
+    userChoices.push(...upperCase)
     console.log(userChoices)
   }
 
@@ -60,7 +60,7 @@ function passwordPrompt() {
   if (lower == false) {
     return
   } else if (lower == true) {
-    userChoices.push(lowerCase)
+    userChoices.push(...lowerCase)
     console.log(userChoices)
   }
 
